@@ -9,3 +9,47 @@ body {
 .has-danger .text-help {
   color: #d9534f;
 }
+
+.sey-container {
+  position: absolute;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,.15);
+  border-radius: .25rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.sey-show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.sey-list {
+  padding: 0;
+}
+
+.sey-item {
+  display: block;
+  cursor: pointer;
+  line-height: 1.5;
+}
+
+.progress-bar {
+  height: auto;
+  font-size: 1.2rem;
+  padding: 5px 0;
+}
+
+.progress {
+  margin-bottom: 20px;
+}
+
+.btn,
+a {
+  cursor: pointer;
+}

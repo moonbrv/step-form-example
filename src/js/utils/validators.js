@@ -1,5 +1,5 @@
 import { Validation } from 'bunnyjs/src/Validation'
-import { dateOfBirth, haveYears } from './dateOfBirthHelpers'
+import { dateOfBirth, haveYears, isInnValid } from './dateOfBirthHelpers'
 
 export default function () {
   /**
@@ -59,7 +59,7 @@ export default function () {
         if ((input.value >= 1) && (input.value <= 12)) {
           resolve()
         } else {
-          const err = new Error('not sum')
+          const err = new Error('not srok')
           reject(err)
         }
       } else {
@@ -79,7 +79,29 @@ export default function () {
         if ((input.value.length === 10) && (input.value.match(/^[0-9]{1,}$/ig))) {
           resolve()
         } else {
-          const err = new Error('not sum')
+          const err = new Error('not inn')
+          reject(err)
+        }
+      } else {
+        resolve()
+      }
+    })
+  }
+
+  /**
+   * Custrom INN validator
+   */
+  Validation.lang.validinn = 'Введенный ИНН не действителен'
+
+  Validation.validators.validinn = input => {
+    return new Promise((resolve, reject) => {
+      if (input.hasAttribute('data-valid-inn')) {
+        const days = parseInt(input.value.slice(0, 5))
+        const valid = isInnValid(dateOfBirth(days))
+        if (valid) {
+          resolve()
+        } else {
+          const err = new Error('not valid inn')
           reject(err)
         }
       } else {
@@ -96,12 +118,13 @@ export default function () {
   Validation.validators.twentyone = input => {
     return new Promise((resolve, reject) => {
       if (input.hasAttribute('data-twentyone')) {
-        const days = input.value.slice(0, 4)
+        const days = parseInt(input.value.slice(0, 5))
+        console.log(days)
         const has21 = haveYears(dateOfBirth(days), 21)
         if (has21) {
           resolve()
         } else {
-          const err = new Error('not sum')
+          const err = new Error('not twentyone')
           reject(err)
         }
       } else {

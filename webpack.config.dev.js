@@ -1,12 +1,11 @@
 const path = require('path')
 
 module.exports = {
-  target: "web",
-
+  target: 'web',
   entry: {
-    step1: path.join(__dirname, 'src', 'js', 'step-1', 'step-1.js'),
-    step2: path.join(__dirname, 'src', 'js', 'step-2', 'step-2.js'),
-    step3: path.join(__dirname, 'src', 'js', 'step-3', 'step-3.js'),
+    step1: path.join(__dirname, 'src', 'js', 'step-1'),
+    step2: path.join(__dirname, 'src', 'js', 'step-2'),
+    step3: path.join(__dirname, 'src', 'js', 'step-3')
   },
   output: {
     path: path.join(__dirname, 'public', 'js'),
@@ -19,11 +18,8 @@ module.exports = {
         exclude: [
           path.resolve(__dirname, 'node_modules')
         ],
-        loader: "babel-loader",
-        options: {
-          presets: ["es2015"]
-        }
-      },
+        loader: 'babel-loader'
+      }
     ]
   }
 }

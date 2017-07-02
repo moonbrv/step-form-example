@@ -13,3 +13,8 @@ export function haveYears (birthDate, years) {
   }
   return age >= years
 }
+
+export function isInnValid (innDate) {
+  const today = new Date()
+  return (innDate.getTime() < today.getTime())
+}
