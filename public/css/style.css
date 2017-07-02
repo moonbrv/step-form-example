@@ -1,0 +1,11 @@
+.content-wrapper {
+  padding: 50px 0;
+}
+
+body {
+  font-size: 1.2rem;
+}
+
+.has-danger .text-help {
+  color: #d9534f;
+}
