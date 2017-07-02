@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "npm run webpack-prod && node ./bin/www",
+    "start": "node ./bin/www",
     "dev": "nodemon ./bin/www & npm run webpack-dev",
     "webpack-dev": "webpack --config webpack.config.dev.js -w -d",
     "webpack-prod": "webpack --config webpack.config.dev.js"
